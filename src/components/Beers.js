@@ -1,7 +1,8 @@
 import React from 'react';
 
 import axios from 'axios';
-import { async } from 'q';
+
+import BeerCard from './BeerCard';
 
 class Beers extends React.Component {
     state = {
@@ -16,30 +17,15 @@ class Beers extends React.Component {
         try {
             const response = await axios.get('https://api.punkapi.com/v2/beers');
 
-            this.setState({ beers: response.data.map((beer) => (<li key={beer.id}>{beer.name}</li>)) })
+            this.setState({ beers: response.data })
         } catch (err) {
             console.log(err);
         }
     }
 
     render() {
-        return (<div>{this.state.beers}</div>);
+        return (<div>{this.state.beers.map((beer) => <BeerCard key={beer.id} beer={beer} />)}</div>);
     }
 }
-
-// async function getBeers() {
-
-
-//     return <p>Hello world</p>
-// }
-
-// function App() {
-
-
-
-//     return (<div>
-//         ${getBeers()}
-//     </div>)
-// }
 
 export default Beers;
