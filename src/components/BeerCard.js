@@ -10,7 +10,7 @@ function App(props) {
             <div style={styles.contentHolder}>
                 <p style={{ fontWeight: '600' }}> {props.beer.name} </p>
                 <div style={styles.descContainer}>
-                    <p> {props.beer.description} </p>
+                  <p>{props.beer.description}</p>
                 </div>
             </div>
         </div>
@@ -22,8 +22,9 @@ const styles = {
         display: 'flex',
         borderRadius: '5px',
         border: '1px solid #aaa',
-        maxWidth: '350px',
-        minWidth: '250px'
+        maxHeight: '200px',
+        minHeight: '200px',
+        marginTop: '18px'
     },
     imgHolder: {
         flexBasis: '35%',
@@ -31,11 +32,13 @@ const styles = {
     },
     contentHolder: {
         flexBasis: '65%',
-        padding: '1em',
+        margin: '1em',
+        overflow: 'hidden',
     },
     descContainer : {
         marginTop: '18px',
-        fontSize: '0.8em'
+        fontSize: '0.8em',
+        textOverflow: 'ellipsis',
     }
 }
 
