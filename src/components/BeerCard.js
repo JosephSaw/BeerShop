@@ -1,37 +1,39 @@
 import React from 'react'
 
-import { faHeart as farHeart} from "@fortawesome/free-regular-svg-icons";
-import { faHeart as fasHeart} from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function App(props) {
-
-    const Heart = ({ filled, onClick }) => {
-
-        return (
-            <div onClick={onClick} >
-                <FontAwesomeIcon icon={filled ? farHeart : fasHeart} />
-            </div>
-        );
-    };
+const Heart = ({ filled, onClick }) => {
 
     return (
-        <div style={styles.card}>
-            <div style={styles.imgHolder}>
-                <img src={props.beer.image_url} />
-            </div>
-            <div style={styles.contentHolder}>
-                <div style={styles.contentHeader}>
-                    <p style={{ fontWeight: '600' }}> {props.beer.name} </p>
-                    <Heart />
-                </div>
-
-                <div style={styles.contentDesc}>
-                    <p>{props.beer.description}</p>
-                </div>
-            </div>
+        <div onClick={onClick} >
+            <FontAwesomeIcon icon={filled ? farHeart : fasHeart} />
         </div>
     );
+};
+
+class BeerCard extends React.Component {
+
+    render() {
+        return (
+            <div style={styles.card}>
+                <div style={styles.imgHolder}>
+                    <img alt={this.props.beer.name} src={this.props.beer.image_url} />
+                </div>
+                <div style={styles.contentHolder}>
+                    <div style={styles.contentHeader}>
+                        <p style={{ fontWeight: '600' }}> {this.props.beer.name} </p>
+                        <Heart />
+                    </div>
+
+                    <div style={styles.contentDesc}>
+                        <p>{this.props.beer.description}</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 const styles = {
@@ -64,4 +66,4 @@ const styles = {
 }
 
 
-export default App;
+export default BeerCard;
