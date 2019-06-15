@@ -1,6 +1,19 @@
 import React from 'react'
 
+import { faHeart as farHeart} from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHeart} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function App(props) {
+
+    const Heart = ({ filled, onClick }) => {
+
+        return (
+            <div onClick={onClick} >
+                <FontAwesomeIcon icon={filled ? farHeart : fasHeart} />
+            </div>
+        );
+    };
 
     return (
         <div style={styles.card}>
@@ -8,9 +21,13 @@ function App(props) {
                 <img src={props.beer.image_url} />
             </div>
             <div style={styles.contentHolder}>
-                <p style={{ fontWeight: '600' }}> {props.beer.name} </p>
-                <div style={styles.descContainer}>
-                  <p>{props.beer.description}</p>
+                <div style={styles.contentHeader}>
+                    <p style={{ fontWeight: '600' }}> {props.beer.name} </p>
+                    <Heart />
+                </div>
+
+                <div style={styles.contentDesc}>
+                    <p>{props.beer.description}</p>
                 </div>
             </div>
         </div>
@@ -35,7 +52,11 @@ const styles = {
         margin: '1em',
         overflow: 'hidden',
     },
-    descContainer : {
+    contentHeader: {
+        display: 'flex',
+        justifyContent: 'spaceBetween'
+    },
+    contentDesc: {
         marginTop: '18px',
         fontSize: '0.8em',
         textOverflow: 'ellipsis',
