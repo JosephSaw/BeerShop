@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 
+import Header from './components/layout/Header';
 import Beers from './components/Beers';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Possibly Provocative Beers.</h1>
+      <Header />
       <Beers />
 
     </div>

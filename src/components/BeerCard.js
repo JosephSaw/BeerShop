@@ -30,8 +30,8 @@ class BeerCard extends React.Component {
                     }
 
                     .heartIcon:hover {
-                        -webkit-animation: wobble-hor-bottom 0.8s both;
-	                    animation: wobble-hor-bottom 0.8s both;
+                        -webkit-animation: wobble-hor-bottom 0.8s forwards;
+	                    animation: wobble-hor-bottom 0.8s forwards;
                     }
 
                     @-webkit-keyframes wobble-hor-bottom {
