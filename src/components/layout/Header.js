@@ -27,10 +27,10 @@ class Header extends Component {
     }
 }
 
-const styles = {
-    container : {
-        padding: '16px'
-    }
-}
+// const styles = {
+//     container : {
+//         padding: '16px'
+//     }
+// }
 
 export default Header;

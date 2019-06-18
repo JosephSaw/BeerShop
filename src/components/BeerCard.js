@@ -18,6 +18,7 @@ class BeerCard extends React.Component {
     state = { fav: false };
 
     handleClick = () => {
+        this.props.addBeerToFav(this.props.beer.id);
         this.setState({ filled: !this.state.filled });
     }
 

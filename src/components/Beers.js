@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { fetchBeers } from '../actions/beersActions';
+import { fetchBeers, addToFav } from '../actions/beersActions';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -20,16 +20,12 @@ class Beers extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-        this.props.beers.map((beer) => {
-            console.log(beer)
-        })
         return (<Container >
             <Row> {this.props.beers.map((beer) => {
                 return (
 
                     <Col key={beer.id} sm={4}>
-                        <BeerCard beer={beer} />
+                        <BeerCard addBeerToFav={this.props.addBeerToFav} beer={beer} />
                     </Col>
 
                 )
@@ -44,12 +40,13 @@ class Beers extends React.Component {
 const mapStateToProps = state => {
     console.log(state);
     return {
-        beers: state.beers
+        beers: state.beers,
     }
 }
 
 const mapActionsToProps = {
-    fetchBeers
+    fetchBeers,
+    addBeerToFav: addToFav
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Beers);
