@@ -5,7 +5,7 @@ import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Style from 'style-it';
 
-const Heart = ({ filled, onClick }) => {
+const Cart = ({ filled, onClick }) => {
 
     return (
         <div onClick={onClick} >
@@ -103,7 +103,7 @@ class BeerCard extends React.Component {
                     <div style={styles.contentHolder}>
                         <div style={styles.contentHeader}>
                             <p style={{ fontWeight: '600' }}> {this.props.beer.name} </p>
-                            <Heart filled={this.state.filled} onClick={this.handleClick} />
+                            <Cart filled={this.state.filled} onClick={this.handleClick} />
                         </div>
 
                         <div style={styles.contentDesc}>

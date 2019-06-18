@@ -1,6 +1,7 @@
 import React from 'react';
 
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchBeers } from '../actions/beersActions';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,22 +16,16 @@ class Beers extends React.Component {
     }
 
     componentDidMount() {
-        this.renderBeers();
-    }
-
-    renderBeers = async () => {
-        try {
-            const response = await axios.get('https://api.punkapi.com/v2/beers');
-
-            this.setState({ beers: response.data })
-        } catch (err) {
-            console.log(err);
-        }
+        this.props.fetchBeers();
     }
 
     render() {
+        console.log(this.props)
+        this.props.beers.map((beer) => {
+            console.log(beer)
+        })
         return (<Container >
-            <Row> {this.state.beers.map((beer) => {
+            <Row> {this.props.beers.map((beer) => {
                 return (
 
                     <Col key={beer.id} sm={4}>
@@ -46,4 +41,15 @@ class Beers extends React.Component {
     }
 }
 
-export default Beers;
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+        beers: state.beers
+    }
+}
+
+const mapActionsToProps = {
+    fetchBeers
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Beers);
