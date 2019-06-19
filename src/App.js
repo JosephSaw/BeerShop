@@ -26,9 +26,7 @@ class App extends React.Component {
                 return <Beers beers={this.props.beers} addBeerToFav={this.props.addBeerToFav}/>
               }} />
               <Route path="/favourites" render={() => {
-                console.log('here')
-                console.log(this.props.favBeers)
-                return <Beers beers={this.props.favBeers} addBeerToFav={this.props.addBeerToFav} />
+                return <Beers beers={this.props.beers} favBeers={this.props.favBeers} addBeerToFav={this.props.addBeerToFav} />
               }} />
             </Switch>
           </div>
