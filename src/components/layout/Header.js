@@ -14,9 +14,9 @@ class Header extends Component {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand>Possibly Provocative Alcohol</Navbar.Brand>
                 <Nav className="mr-auto">
-                <Link to="/"><Nav.Link href="/">Home</Nav.Link></Link>
-                    
-                    <Link to="/favourites"><Nav.Link href="/favourites">Favourites</Nav.Link></Link>
+                    <Nav.Link to="/" as={Link}>Home</Nav.Link>
+
+                    <Nav.Link to="/favourites" as={Link}>Favourites</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
