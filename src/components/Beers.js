@@ -6,12 +6,11 @@ import Col from 'react-bootstrap/Col';
 
 import BeerCard from './BeerCard';
 
-
 class Beers extends React.Component {
 
     buildCard(beer) {
         return (<Col key={beer.id} sm={4}>
-            <BeerCard addBeerToFav={this.props.addBeerToFav} beer={beer} />
+            <BeerCard addBeerToFav={this.props.addBeerToFav} removeBeerFromFav={this.props.removeBeerFromFav} beer={beer} />
         </Col>);
     }
 

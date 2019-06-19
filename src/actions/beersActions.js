@@ -1,5 +1,7 @@
-import { FETCH_BEERS, ADD_FAV } from './types';
+import { FETCH_BEERS, ADD_FAV, REMOVE_FAV } from './types';
 import axios from 'axios';
+
+export const removeFromFav = (beerId) => ({type: REMOVE_FAV, payload: beerId});
 
 export const addToFav = (beerId) => ({type: ADD_FAV, payload: beerId})
 

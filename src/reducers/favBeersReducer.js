@@ -1,4 +1,4 @@
-import { ADD_FAV } from '../actions/types';
+import { ADD_FAV, REMOVE_FAV } from '../actions/types';
 
 const initialState = [];
 
@@ -8,6 +8,10 @@ function favBeers(state = initialState, action) {
 
         case ADD_FAV:
             return [...state, action.payload]
+
+        case REMOVE_FAV:
+            
+            return state.filter( (beerId) => beerId !== action.payload )
             
         default:
             return state;

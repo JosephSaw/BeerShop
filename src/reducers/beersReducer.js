@@ -6,8 +6,6 @@ function beersReducer(state = initialState, action) {
     
     switch (action.type) {
         case FETCH_BEERS:
-            console.log(state)
-                        
             return [...state, ...action.payload.beers];
             
         default:

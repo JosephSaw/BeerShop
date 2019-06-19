@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as fasHeart} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Style from 'style-it';
 
@@ -9,7 +9,11 @@ const Cart = ({ filled, onClick }) => {
 
     return (
         <div onClick={onClick} >
-            <FontAwesomeIcon className="heartIcon" icon={filled ? fasHeart : farHeart} />
+            {
+
+                <FontAwesomeIcon className="heartIcon" icon={filled ? fasHeart : farHeart} />
+
+            }
         </div>
     );
 };
@@ -18,7 +22,7 @@ class BeerCard extends React.Component {
     state = { fav: false };
 
     handleClick = () => {
-        this.props.addBeerToFav(this.props.beer.id);
+        this.props.addBeerToFav ? this.props.addBeerToFav(this.props.beer.id) : this.props.removeBeerFromFav(this.props.beer.id);
         this.setState({ filled: !this.state.filled });
     }
 

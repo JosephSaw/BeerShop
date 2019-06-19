@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Beers from './components/Beers';
 
-import { fetchBeers, addToFav } from './actions/beersActions';
+import { fetchBeers, addToFav, removeFromFav } from './actions/beersActions';
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends React.Component {
                 return <Beers beers={this.props.beers} addBeerToFav={this.props.addBeerToFav}/>
               }} />
               <Route path="/favourites" render={() => {
-                return <Beers beers={this.props.beers} favBeers={this.props.favBeers} addBeerToFav={this.props.addBeerToFav} />
+                return <Beers beers={this.props.beers} favBeers={this.props.favBeers} removeBeerFromFav={this.props.removeBeerFromFav} />
               }} />
             </Switch>
           </div>
@@ -46,7 +46,8 @@ const mapStateToProps = state => {
 
 const mapActionsToProps = {
   fetchBeers,
-  addBeerToFav: addToFav
+  addBeerToFav: addToFav,
+  removeBeerFromFav: removeFromFav
 }
 
 
