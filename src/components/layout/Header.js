@@ -6,17 +6,20 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
+import { Link } from 'react-router-dom'
+
 class Header extends Component {
     render() {
         return (
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Possibly Provocative Alcohol</Navbar.Brand>
+                <Navbar.Brand>Possibly Provocative Alcohol</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#favourites">Favourites</Nav.Link>
+                <Link to="/"><Nav.Link href="/">Home</Nav.Link></Link>
+                    
+                    <Link to="/favourites"><Nav.Link href="/favourites">Favourites</Nav.Link></Link>
                 </Nav>
                 <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                     <Button variant="outline-info">Search</Button>
                 </Form>
             </Navbar>
